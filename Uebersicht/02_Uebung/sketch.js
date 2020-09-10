@@ -15,7 +15,7 @@ function draw() {
 
   //x-Wert nach Fibonacci zahlen
 
-  background(255, 50, 20);
+  background(mouseX, 50, 20);
 
   strokeWeight(5);
 
