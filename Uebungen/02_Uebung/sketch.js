@@ -5,7 +5,7 @@ function setup() {
 
 function draw() {
   //size
-  let s = 0;
+  let s = mouseX;
   //x-Achse
   let x = 80;
   //blau-Wert
