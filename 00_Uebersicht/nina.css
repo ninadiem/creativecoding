@@ -1,0 +1,113 @@
+html {
+  font-family: 'Sen', sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+.text {
+  max-width: 40rem;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vmin;
+}
+
+.abstand {
+  height: 4rem;
+}
+
+
+h1 {
+  font-size: 8vw;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1em;
+  text-transform: uppercase;
+  hyphens: auto;
+  margin-top: 1vw;
+  margin-bottom: -1.15vw;
+  margin-right: 2vw;
+}
+
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.7em;
+}
+
+ul {
+  padding-left: 10em;
+}
+
+li {
+  line-height: 1.3em;
+  margin-bottom: 0.9em;
+  list-style: "_";
+}
+
+a {
+  text-decoration: none;
+  color: #34cfed;
+  float: right;
+  /* color: #24769a; */
+}
+
+
+a:hover {
+  text-decoration: underline;
+}
+
+.sen_typeface {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fusszeile {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6em;
+  text-align: center;
+}
+
+/* andere Bilder Desktop/Mobile */
+#desktop {
+  display: block;
+}
+
+#mobile {
+  display: none;
+}
+
+/* Mediaquery */
+
+@media all and (max-width: 62em) {
+  #desktop {
+    display: none;
+  }
+
+  #mobile {
+    display: block;
+  }
+
+  .abstand {
+    height: 3rem;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  .code_erklaerung {
+    display: block;
+  }
+}
