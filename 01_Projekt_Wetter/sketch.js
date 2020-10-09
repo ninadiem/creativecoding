@@ -12,7 +12,7 @@ var NiederschlagMax = 60;
 var NiederschlagStep = 5;
 
 
-let x = random(windowHeight);
+let x = random(0, windowWidth);
 
 
 let raindropsRadius = 50;
