@@ -53,6 +53,10 @@ li {
   list-style: "_";
 }
 
+.bold {
+  font-weight: 800;
+}
+
 a {
   text-decoration: none;
   color: #34cfed;
