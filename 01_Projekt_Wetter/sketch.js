@@ -12,7 +12,7 @@ var NiederschlagMax = 60;
 var NiederschlagStep = 5;
 
 
-let x = random(windowWidth, windowHeight);
+let x = random(windowHeight);
 
 
 let raindropsRadius = 50;
@@ -51,10 +51,12 @@ function draw() {
 
 
   if (raindropsRadius < kreisdurchmesserMax) {
-    ellipse(200, 200, raindropsRadius);
+    ellipse(x, x, raindropsRadius);
   }
 
 }
+
+
 
 
 
