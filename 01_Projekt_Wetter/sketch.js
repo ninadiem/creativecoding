@@ -1,18 +1,17 @@
 var gui;
 
 
-var Tropfengroesse = 1;
+var Tropfengroesse = 70;
 var TropfengroesseMin = 1;
 var TropfengroesseMax = 7;
 var TropfengroesseStep = 2;
 
-var Niederschlag = 1;
+var Niederschlag = 10;
 var NiederschlagMin = 0;
 var NiederschlagMax = 60;
 var NiederschlagStep = 5;
 
-
-let x = random(0, windowWidth);
+let x = 0;
 
 
 let raindropsRadius = 50;
@@ -25,6 +24,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   ellipseMode(CENTER);
   angleMode(DEGREES);
+
 
   // background(25, 25, 112);
 
@@ -46,12 +46,21 @@ function draw() {
   // background(25, 25, 112, 10);
 
   background(0, 20);
+  randomSeed(10);
+  x = random(0, windowWidth);
+
 
   raindropsRadius = raindropsRadius * scale;
 
-
-  if (raindropsRadius < kreisdurchmesserMax) {
+for (let i = 0; i <= Niederschlag; i++){
+  if (raindropsRadius <= Tropfengroesse) {
     ellipse(x, x, raindropsRadius);
+    x = random(0, windowWidth);
+    ellipse(x, x, raindropsRadius);
+  }
+  else {
+    raindropsRadius = 50;
+  }
   }
 
 }
