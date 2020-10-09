@@ -6,10 +6,10 @@ var TropfengroesseMin = 1;
 var TropfengroesseMax = 7;
 var TropfengroesseStep = 2;
 
-var Wind = 10;
-var WindMin = 0;
-var WindMax = 70;
-var WindStep = 10;
+var Niederschlag = 1;
+var NiederschlagMin = 0;
+var NiederschlagMax = 60;
+var NiederschlagStep = 5;
 
 
 let x = random(windowWidth, windowHeight);
@@ -37,7 +37,7 @@ function setup() {
 
 
   gui = createGui('Regen');
-  gui.addGlobals('Tropfengroesse', 'Wind');
+  gui.addGlobals('Tropfengroesse', 'Niederschlag');
 }
 
 
