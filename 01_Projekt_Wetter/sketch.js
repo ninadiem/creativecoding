@@ -12,6 +12,7 @@ var NiederschlagMax = 60;
 var NiederschlagStep = 5;
 
 let x = 0;
+let y = 0;
 
 
 let raindropsRadius = 50;
@@ -48,15 +49,20 @@ function draw() {
   background(0, 20);
   randomSeed(10);
   x = random(0, windowWidth);
+  y = random(0, windowHeight);
+
 
 
   raindropsRadius = raindropsRadius * scale;
 
+//!!!!! BEISPIEL HANNA ANWENDEN; SFGZ_Array copy !!!!!!!
+
 for (let i = 0; i <= Niederschlag; i++){
   if (raindropsRadius <= Tropfengroesse) {
-    ellipse(x, x, raindropsRadius);
+    ellipse(x, y, raindropsRadius);
     x = random(0, windowWidth);
-    ellipse(x, x, raindropsRadius);
+    y = random(0, windowHeight);
+    ellipse(x, y, raindropsRadius);
   }
   else {
     raindropsRadius = 50;
