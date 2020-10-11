@@ -55,7 +55,7 @@ function draw() {
 
   raindropsRadius = raindropsRadius * scale;
 
-//!!!!! BEISPIEL HANNA ANWENDEN; SFGZ_Array copy !!!!!!!
+//!!!!! BEISPIEL HANNA; SFGZ_Array copy !!!!!!!
 
 for (let i = 0; i <= Niederschlag; i++){
   if (raindropsRadius <= Tropfengroesse) {
