@@ -1,15 +1,14 @@
 var gui;
 
+var Niederschlag = 4;
+var NiederschlagMin = 4;
+var NiederschlagMax = 100;
+var NiederschlagStep = 1;
 
 var Tropfengroesse = 70;
 var TropfengroesseMin = 20;
 var TropfengroesseMax = 500;
 var TropfengroesseStep = 10;
-
-var Niederschlag = 4;
-var NiederschlagMin = 4;
-var NiederschlagMax = 100;
-var NiederschlagStep = 1;
 
 let raindropsX = [];
 let raindropsY = [];
@@ -33,7 +32,7 @@ function setup() {
     raindropsRadius[n] = random(20);
   }
 
-  stroke(120, 120, 250)
+  stroke(120, 120, 250);
   strokeWeight(2);
   noFill();
 
@@ -41,12 +40,14 @@ function setup() {
 
 
   gui = createGui('Regen');
-  gui.addGlobals('Tropfengroesse', 'Niederschlag');
+  gui.addGlobals('Niederschlag', 'Tropfengroesse');
 }
 
 
 
-function draw() {  background(0, 10);
+function draw() {
+
+  background(0, 10);
 
   for (let n = 0; n < Niederschlag; n++) {
     raindropsRadius[n] = raindropsRadius[n] * scale;
