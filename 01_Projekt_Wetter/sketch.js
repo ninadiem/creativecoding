@@ -25,7 +25,7 @@ function setup() {
   angleMode(DEGREES);
 
 
-  //regentropfen erzeugen, initialposition
+  //regentropfen erzeugen, grundposition
   for (let n = 0; n < Niederschlag; n++) {
     raindropsX[n] = random(width);
     raindropsY[n] = random(height);
@@ -54,7 +54,7 @@ function draw() {
     ellipse(raindropsX[n], raindropsY[n], raindropsRadius[n]);
 
     if (raindropsRadius[n] > Tropfengroesse) {
-      //neue Position für regentropfen
+      //neue position für regentropfen
       raindropsX[n] = random(width);
       raindropsY[n] = random(height);
       raindropsRadius[n] = random(20);
