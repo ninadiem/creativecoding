@@ -2,21 +2,20 @@ var gui;
 
 
 var Tropfengroesse = 70;
-var TropfengroesseMin = 1;
-var TropfengroesseMax = 7;
-var TropfengroesseStep = 2;
+var TropfengroesseMin = 20;
+var TropfengroesseMax = 500;
+var TropfengroesseStep = 10;
 
-var Niederschlag = 10;
-var NiederschlagMin = 0;
-var NiederschlagMax = 60;
-var NiederschlagStep = 5;
+var Niederschlag = 4;
+var NiederschlagMin = 4;
+var NiederschlagMax = 100;
+var NiederschlagStep = 1;
 
-let x = 0;
-let y = 0;
+let raindropsX = [];
+let raindropsY = [];
+let raindropsRadius = [];
 
 
-let raindropsRadius = 50;
-let kreisdurchmesserMax = 300;
 let scale = 1.1;
 
 
@@ -27,14 +26,18 @@ function setup() {
   angleMode(DEGREES);
 
 
-  // background(25, 25, 112);
-
+  //regentropfen erzeugen, initialposition
+  for (let n = 0; n < Niederschlag; n++) {
+    raindropsX[n] = random(width);
+    raindropsY[n] = random(height);
+    raindropsRadius[n] = random(20);
+  }
 
   stroke(120, 120, 250)
-  strokeWeight(5);
+  strokeWeight(2);
   noFill();
 
-  frameRate(10);
+  // frameRate(10);
 
 
   gui = createGui('Regen');
@@ -43,45 +46,17 @@ function setup() {
 
 
 
-function draw() {
-  // background(25, 25, 112, 10);
+function draw() {  background(0, 10);
 
-  background(0, 20);
-  randomSeed(10);
-  x = random(0, windowWidth);
-  y = random(0, windowHeight);
+  for (let n = 0; n < Niederschlag; n++) {
+    raindropsRadius[n] = raindropsRadius[n] * scale;
+    ellipse(raindropsX[n], raindropsY[n], raindropsRadius[n]);
 
-
-
-  raindropsRadius = raindropsRadius * scale;
-
-//!!!!! BEISPIEL HANNA; SFGZ_Array copy !!!!!!!
-
-for (let i = 0; i <= Niederschlag; i++){
-  if (raindropsRadius <= Tropfengroesse) {
-    ellipse(x, y, raindropsRadius);
-    x = random(0, windowWidth);
-    y = random(0, windowHeight);
-    ellipse(x, y, raindropsRadius);
+    if (raindropsRadius[n] > Tropfengroesse) {
+      //neue Position für regentropfen
+      raindropsX[n] = random(width);
+      raindropsY[n] = random(height);
+      raindropsRadius[n] = random(20);
+    }
   }
-  else {
-    raindropsRadius = 50;
-  }
-  }
-
 }
-
-
-
-
-
-// if (mouseIsPressed) {
-//   for (let i = 1; i <= anz; i++) {
-//   /*  fr = 10; //starting FPS
-//     frameRate(fr);*/
-//     let alpha=map(i,1,anz,255,0);
-//     stroke(120, 120, 250, alpha);
-//     strokeWeight(i);
-//     ellipse(mouseX, mouseY, distanz * i);
-//   }
-// }
