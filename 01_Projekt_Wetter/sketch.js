@@ -1,9 +1,12 @@
 var gui;
 
+// PROBLEM: Niederschlag verändert Animations-Geschwindigkeit und nicht Anzahl Regentropfen
+
 var Niederschlag = 4;
 var NiederschlagMin = 4;
 var NiederschlagMax = 100;
 var NiederschlagStep = 1;
+
 
 var Tropfengroesse = 70;
 var TropfengroesseMin = 20;
