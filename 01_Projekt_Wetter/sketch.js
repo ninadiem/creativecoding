@@ -56,6 +56,8 @@ function setup() {
   stroke(120, 120, 250);
   strokeWeight(2);
   noFill();
+  background(0, 10);
+
 }
 
 
