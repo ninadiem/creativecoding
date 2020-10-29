@@ -26,15 +26,6 @@ let scale = 1.1;
 
 
 
-// function preload() {
-//   fontRegular = loadFont('fonts/OpenSans-Regular.ttf');
-//   fontItalic = loadFont('fonts/OpenSans-Italic.ttf');
-//   fontBold = loadFont('assets/OpenSans-Bold.ttf');
-// }
-
-
-
-
 
 
 function setup() {
@@ -50,7 +41,6 @@ function setup() {
 
   gui = createGui('Regen');
   gui.addGlobals('Niederschlag', 'Tropfengroesse');
-  // gui.position(20, height - 50);
 
 
 
@@ -70,7 +60,6 @@ function setup() {
     raindropsRadius[n] = random(20);
   }
 
-  // String s = "Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.";
 
 
 
@@ -112,9 +101,6 @@ function draw() {
     fill(255);
     rect(25, 175, 235, 125);
 
-    // fill(200);
-    // rect(20, 180, 182, 31);
-    // textFont(fontRegular);
     textSize(13);
     fill(0);
     text("Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.", 30, 180, 200, 30);
