@@ -24,12 +24,23 @@
 			overflow: hidden;
 			font-family: "Helvetica";
 			line-height: 140%;
+			background-color: none;
 		}
 
-		p {
+.box {
+	/* position: overflow; */
+	margin-left: calc(100vw - 80px);
+	position: fixed;
+}
+		h1 {
 			color: white;
-			align-self: center;
-		}
+			background-color: none;
+			text-align: right;
+	}
+
+	h1:hover {
+		color: rgb(120, 120, 250);
+}
 
 		canvas {
 			margin: auto;
@@ -39,6 +50,9 @@
 
 <body>
 
+<div class="box">
+	<h1>info</h1>
+</div>
 
 </body>
 
