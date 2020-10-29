@@ -5,15 +5,15 @@ let input, button;
 var gui;
 
 var Niederschlag = 4;
-var NiederschlagMin = 4;
-var NiederschlagMax = 100;
+var NiederschlagMin = 0;
+var NiederschlagMax = 50;
 var NiederschlagStep = 1;
 
 
-var Tropfengroesse = 70;
-var TropfengroesseMin = 20;
-var TropfengroesseMax = 500;
-var TropfengroesseStep = 10;
+var Tropfengroesse = 2;
+var TropfengroesseMin = 1;
+var TropfengroesseMax = 7;
+var TropfengroesseStep = 0.5;
 
 let raindropsX = [];
 let raindropsY = [];
@@ -32,18 +32,25 @@ function setup() {
   angleMode(DEGREES);
 
 
-  let url = 'https://api.weatherstack.com/current?access_key='+key+'&query=Zürich';
+  let url = 'https://api.weatherstack.com/current?access_key=' + key + '&query=Zürich';
   loadJSON(url, gotWeather);
+
+
 
   gui = createGui('Regen');
   gui.addGlobals('Niederschlag', 'Tropfengroesse');
+  // gui.position(20, height - 50);
 
 
-  input = createInput();
-  input.position(20, height - 50);
-  button = createButton('SUBMIT');
-  button.position(input.x + input.width + 10, height - 50);
+
+  input = createInput('Stadt eingeben');
+  input.position(20, 160);
+  button = createButton('Suchen');
+  button.position(input.x + input.width + 10, 160);
   button.mousePressed(reloadJson);
+
+
+
 
 
   //regentropfen variablen füllen
@@ -53,9 +60,7 @@ function setup() {
     raindropsRadius[n] = random(20);
   }
 
-  stroke(120, 120, 250);
-  strokeWeight(2);
-  noFill();
+
   background(0, 10);
 
 }
@@ -63,16 +68,28 @@ function setup() {
 
 
 function draw() {
+  noLoop();
+    textSize(15);
+    fill(255, 255, 255);
+    strokeWeight(0);
+    text('Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.', 20, 200);
+  Loop();
 
   background(0, 10);
 
 
 
+  smooth();
+
+  stroke(120, 120, 250);
+  strokeWeight(2);
+  noFill();
+
   for (let n = 0; n < Niederschlag; n++) {
     raindropsRadius[n] = raindropsRadius[n] * scale;
     ellipse(raindropsX[n], raindropsY[n], raindropsRadius[n], raindropsRadius[n]);
 
-    if (raindropsRadius[n] > Tropfengroesse) {
+    if (raindropsRadius[n] > Tropfengroesse * 50) {
       //neue position für regentropfen
       raindropsX[n] = random(width);
       raindropsY[n] = random(height);
@@ -80,17 +97,16 @@ function draw() {
     }
   }
 
-  //ellipse(width / 2, height / 2, Niederschlag);
-
 
 
 }
 
+
 function gotWeather(weather) {
   // Get the precip in mm
-  Niederschlag = weather.current.precip*10; // in mm!
+  Niederschlag = weather.current.precip * 10; // in mm!
+  Tropfengroesse = weather.current.precip; // in mm!
   console.log(Niederschlag);
-  //windrad = map(windstaerke, 0, 200, 0, 10); // in Rotationsgrad mappen. Bei 200stdkm dreht sich das Windrad nun 10 Grad weiter pro Frame
 
 }
 
