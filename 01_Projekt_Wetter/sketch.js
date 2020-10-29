@@ -68,12 +68,12 @@ function setup() {
 
 
 function draw() {
-  noLoop();
+  // noLoop();
     textSize(15);
     fill(255, 255, 255);
     strokeWeight(0);
     text('Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.', 20, 200);
-  Loop();
+  // Loop();
 
   background(0, 10);
 
