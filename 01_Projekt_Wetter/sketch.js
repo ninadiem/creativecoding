@@ -19,8 +19,19 @@ let raindropsX = [];
 let raindropsY = [];
 let raindropsRadius = [];
 
+var Stadt = 0;
+
 
 let scale = 1.1;
+
+
+
+// function preload() {
+//   fontRegular = loadFont('fonts/OpenSans-Regular.ttf');
+//   fontItalic = loadFont('fonts/OpenSans-Italic.ttf');
+//   fontBold = loadFont('assets/OpenSans-Bold.ttf');
+// }
+
 
 
 
@@ -44,11 +55,10 @@ function setup() {
 
 
   input = createInput('Stadt eingeben');
-  input.position(20, 160);
+  input.position(30, 220);
   button = createButton('Suchen');
-  button.position(input.x + input.width + 10, 160);
+  button.position(input.x + input.width + 10, 220);
   button.mousePressed(reloadJson);
-
 
 
 
@@ -60,20 +70,16 @@ function setup() {
     raindropsRadius[n] = random(20);
   }
 
+  // String s = "Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.";
+
+
 
   background(0, 10);
 
 }
 
 
-
 function draw() {
-  // noLoop();
-    textSize(15);
-    fill(255, 255, 255);
-    strokeWeight(0);
-    text('Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.', 20, 200);
-  // Loop();
 
   background(0, 10);
 
@@ -96,8 +102,24 @@ function draw() {
       raindropsRadius[n] = random(20);
     }
   }
+  strokeWeight(0);
+  fill(0);
+  rect(20, 170, 245, 135);
 
 
+    fill(220);
+    rect(20, 170, 245, 135);
+    fill(255);
+    rect(25, 175, 235, 125);
+
+    // fill(200);
+    // rect(20, 180, 182, 31);
+    // textFont(fontRegular);
+    textSize(13);
+    fill(0);
+    text("Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.", 30, 180, 200, 30);
+    // text(Niederschlag, 20, 170) & text('mm/h', 40, 170);
+    text('Die Niederschlagsmenge in ' + Stadt + ' beträgt ' + Niederschlag + ' mm/h', 30, 250, 200, 50);
 
 }
 
@@ -106,8 +128,8 @@ function gotWeather(weather) {
   // Get the precip in mm
   Niederschlag = weather.current.precip * 10; // in mm!
   Tropfengroesse = weather.current.precip; // in mm!
-  console.log(Niederschlag);
-
+  Stadt = weather.location.name;
+  fill(0);
 }
 
 

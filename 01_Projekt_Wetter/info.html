@@ -8,14 +8,6 @@
 
 	<title>Let it rain</title>
 
-	<script src="./libraries/p5.js"></script>
-	<script src="./libraries/p5.dom.js"></script>
-	<script src="./libraries/p5.sound.js"></script>
-	<script src="./libraries/quicksettings.js"></script>
-	<script src="./libraries/p5.gui.js"></script>
-
-	<script src="sketch.js"></script>
-	
 
 
 	<style>
@@ -23,16 +15,15 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
-			font-family: "Helvetica";
+			font-family: 'Open Sans', sans-serif;
 			line-height: 140%;
-			background-color: none;
+			background-color: black;
 		}
 
 .box {
-	/* position: overflow; */
-	margin-left: calc(100vw - 80px);
+	position: overflow;
+	margin-left: calc(100vw - 125px);
 	margin-top: 20px;
-	position: fixed;
 }
 	a {
 			font-size: 2rem;
@@ -46,16 +37,37 @@
 		color: rgb(120, 120, 250);
 }
 
+.textbox {
+	margin-left: 20px
+}
+
+h1{
+	font-size: 1.5rem;
+	color: white;
+}
+
+p {
+	font-size: 1rem;
+	color: white;
+}
+
 		canvas {
 			margin: auto;
 		}
 	</style>
+
+
 </head>
 
 <body>
 
 <div class="box">
-	<a href="info.html">info</a>
+	<a href="index.html">zurück</a>
+</div>
+
+<div class="textbox">
+<h1>Niederschlag</h1>
+<p>Der Niederschlag bezeichnet</p>
 </div>
 
 </body>
