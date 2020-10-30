@@ -38,7 +38,7 @@ function setup() {
   loadJSON(url, gotWeather);
 
 
-//gui
+  //gui
   gui = createGui('Regen');
   gui.addGlobals('Niederschlag', 'Tropfengroesse');
 
@@ -54,7 +54,7 @@ function setup() {
 
 
 
-  //regentropfen x/y-position + radius variablen im array füllen – noch nichts wird gezeichnet
+  //regentropfen x/y-position + radius 1. ring: variablen im array füllen – noch nichts wird gezeichnet
   for (let n = 0; n < NiederschlagMax; n++) {
     raindropsX[n] = random(width);
     raindropsY[n] = random(height);
@@ -79,6 +79,7 @@ function draw() {
   strokeWeight(2);
   noFill();
 
+  //
   for (let n = 0; n < Niederschlag; n++) {
     raindropsRadius[n] = raindropsRadius[n] * scale;
     ellipse(raindropsX[n], raindropsY[n], raindropsRadius[n], raindropsRadius[n]);
@@ -91,7 +92,7 @@ function draw() {
     }
   }
 
-  //Box für Input
+  //box für input
   strokeWeight(0);
   fill(220);
   rect(20, 170, 245, 135);
@@ -109,7 +110,7 @@ function draw() {
 
 //WETTER API
 function gotWeather(weather) {
-  // Get the precip in mm
+  // get the precip in mm
   Niederschlag = weather.current.precip * 10; // in mm!
   Tropfengroesse = weather.current.precip; // in mm!
   Stadt = weather.location.name;
