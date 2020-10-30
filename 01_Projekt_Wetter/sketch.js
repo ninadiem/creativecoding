@@ -56,7 +56,7 @@ function setup() {
 
 
   //regentropfen x-/y-position + radius 1. ring: array mit werten füllen – noch nichts wird gezeichnet
-  // n wird zum Ansprechen der n. stelle im array verwendet
+  // n wird zum ansprechen der n. stelle im array verwendet
   for (let n = 0; n < NiederschlagMax; n++) {
     raindropsX[n] = random(width);
     raindropsY[n] = random(height);
@@ -64,13 +64,13 @@ function setup() {
   }
 
   // => z.B.
-  // raindropsX = [33, 101, 17, 460]
+  // raindropsX = [33, 101, 17, 460, … ]
   //                0.  1.  2.   3.  Stelle im Array
 
-  // raindropsY = [20, 88, 860, 190]
+  // raindropsY = [20, 88, 860, 190, …]
   //                0.  1.  2.   3.  Stelle im Array
 
-  // raindropsRadius = [7, 16, 4, 11]
+  // raindropsRadius = [7, 16, 4, 11, …]
   //                    0.  1. 2.  3.  Stelle im Array
 
 
