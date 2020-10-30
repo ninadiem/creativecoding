@@ -18,6 +18,7 @@ var TropfengroesseStep = 0.5;
 let raindropsX = [];
 let raindropsY = [];
 let raindropsRadius = [];
+//  radius 1. ring
 
 var Stadt = 0;
 
@@ -54,12 +55,24 @@ function setup() {
 
 
 
-  //regentropfen x/y-position + radius 1. ring: variablen im array füllen – noch nichts wird gezeichnet
+  //regentropfen x-/y-position + radius 1. ring: array mit werten füllen – noch nichts wird gezeichnet
+  // n wird zum Ansprechen der n. stelle im array verwendet
   for (let n = 0; n < NiederschlagMax; n++) {
     raindropsX[n] = random(width);
     raindropsY[n] = random(height);
     raindropsRadius[n] = random(20);
   }
+
+  // => z.B.
+  // raindropsX = [33, 101, 17, 460]
+  //                0.  1.  2.   3.  Stelle im Array
+
+  // raindropsY = [20, 88, 860, 190]
+  //                0.  1.  2.   3.  Stelle im Array
+
+  // raindropsRadius = [7, 16, 4, 11]
+  //                    0.  1. 2.  3.  Stelle im Array
+
 
 
   background(0, 10);
@@ -79,20 +92,23 @@ function draw() {
   strokeWeight(2);
   noFill();
 
-  //
   for (let n = 0; n < Niederschlag; n++) {
     raindropsRadius[n] = raindropsRadius[n] * scale;
     ellipse(raindropsX[n], raindropsY[n], raindropsRadius[n], raindropsRadius[n]);
 
+    //   0. stelle im array ansprechen:
+    //     ellipse(raindropsX[0], raindropsY[0], raindropsRadius[0]);
+    //     =>  ellipse (33, 20, 7.7, 7.7)
+
     if (raindropsRadius[n] > Tropfengroesse * 50) {
-      //neue position für regentropfen
       raindropsX[n] = random(width);
       raindropsY[n] = random(height);
       raindropsRadius[n] = random(20);
+      // wenn raindropsradius zu gross => array wieder neu befüllen
     }
   }
 
-  //box für input
+  //lay box für input
   strokeWeight(0);
   fill(220);
   rect(20, 170, 245, 135);
@@ -110,7 +126,7 @@ function draw() {
 
 //WETTER API
 function gotWeather(weather) {
-  // get the precip in mm
+  // get the precip (niederschlag) in mm
   Niederschlag = weather.current.precip * 10; // in mm!
   Tropfengroesse = weather.current.precip; // in mm!
   Stadt = weather.location.name;
