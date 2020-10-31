@@ -9,7 +9,6 @@ var NiederschlagMin = 0;
 var NiederschlagMax = 50;
 var NiederschlagStep = 1;
 
-
 var Tropfengroesse = 2;
 var TropfengroesseMin = 1;
 var TropfengroesseMax = 7;
@@ -44,7 +43,6 @@ function setup() {
 
 
   //input feld
-
   input = createInput('Stadt');
   input.position(30, 220);
   button = createButton('Suchen');
@@ -52,8 +50,6 @@ function setup() {
   button.mousePressed(reloadJson);
 
 
-
-  //werte-datenbank
   //regentropfen x-/y-position + radius 1. ring: array mit werten füllen – noch nichts wird gezeichnet
   // n wird zum ansprechen der n. stelle im array verwendet
   for (let n = 0; n < NiederschlagMax; n++) {
@@ -61,18 +57,6 @@ function setup() {
     raindropsY[n] = random(height);
     raindropsRadius[n] = random(20);
   }
-
-  // => z.B.
-  // raindropsX = [33, 101, 17, 460, … ]
-  // n              0.  1.  2.   3.  Stelle im Array
-
-  // raindropsY = [20, 88, 860, 190, …]
-  // n              0.  1.  2.   3.  Stelle im Array
-
-  // raindropsRadius = [7, 16, 4, 11, …]
-  // n                  0.  1. 2.  3.  Stelle im Array
-
-
 
   background(0, 10);
 
@@ -94,10 +78,6 @@ function draw() {
   for (let n = 0; n < Niederschlag; n++) {
     raindropsRadius[n] = raindropsRadius[n] * scale;
     ellipse(raindropsX[n], raindropsY[n], raindropsRadius[n], raindropsRadius[n]);
-
-    //   0. stelle im array ansprechen:
-    //     ellipse(raindropsX[0], raindropsY[0], raindropsRadius[0]);
-    //     =>  ellipse (33, 20, 7.7, 7.7)
 
     if (raindropsRadius[n] > Tropfengroesse * 50) {
       raindropsX[n] = random(width);
@@ -121,6 +101,8 @@ function draw() {
   text('Die Niederschlagsmenge in ' + Stadt + ' beträgt ' + Niederschlag / 10 + ' mm/h.', 30, 250, 200, 50);
 
 }
+
+
 
 
 //WETTER API
