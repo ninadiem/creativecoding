@@ -110,9 +110,9 @@ function draw() {
 
   //lay box für input
   strokeWeight(0);
-  fill(220);
+  fill(215);
   rect(20, 170, 245, 135);
-  fill(255);
+  fill(245);
   rect(25, 175, 235, 125);
 
   textSize(13);
