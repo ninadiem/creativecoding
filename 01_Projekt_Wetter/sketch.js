@@ -22,7 +22,6 @@ let raindropsRadius = [];
 
 var Stadt = 0;
 
-
 let scale = 1.1;
 
 
@@ -54,7 +53,7 @@ function setup() {
 
 
 
-
+//werte-datenbank
   //regentropfen x-/y-position + radius 1. ring: array mit werten füllen – noch nichts wird gezeichnet
   // n wird zum ansprechen der n. stelle im array verwendet
   for (let n = 0; n < NiederschlagMax; n++) {
@@ -65,13 +64,13 @@ function setup() {
 
   // => z.B.
   // raindropsX = [33, 101, 17, 460, … ]
-  //                0.  1.  2.   3.  Stelle im Array
+  // n              0.  1.  2.   3.  Stelle im Array
 
   // raindropsY = [20, 88, 860, 190, …]
-  //                0.  1.  2.   3.  Stelle im Array
+  // n              0.  1.  2.   3.  Stelle im Array
 
   // raindropsRadius = [7, 16, 4, 11, …]
-  //                    0.  1. 2.  3.  Stelle im Array
+  // n                  0.  1. 2.  3.  Stelle im Array
 
 
 
@@ -119,7 +118,7 @@ function draw() {
   fill(0);
   text("Suche nach einer Stadt, um zu sehen, wie stark es dort regnet.", 30, 180, 200, 30);
   fill(120, 120, 250);
-  text('Die Niederschlagsmenge in ' + Stadt + ' beträgt ' + Niederschlag + ' mm/h', 30, 250, 200, 50);
+  text('Die Niederschlagsmenge in ' + Stadt + ' beträgt ' + Niederschlag/10 + ' mm/h.', 30, 250, 200, 50);
 
 }
 
